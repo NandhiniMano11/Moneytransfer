@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container';
 import AccountDetails from './AccountDetails';
 import NewModal from './NewModal';
 import TransectionList from './TransectionList';
-import Button from 'react-bootstrap/Button'
+import NewButton from './NewButton';
 
 
 class NewHome extends Component {
@@ -21,7 +19,7 @@ class NewHome extends Component {
             addedMoney: 0,
             description: "",
             loaded: false
-           
+
         };
     }
 
@@ -123,12 +121,12 @@ class NewHome extends Component {
     showModal = () => {
         return (
             <NewModal showPopup={this.state.showPopup}
-             handleFormSubmit={this.handleFormSubmit}
-             incomeType={this.incomeType}
-             handleInput = {this.handleInput}
-             updatestate={this.updatestate}
-             >
-                             </NewModal>
+                handleFormSubmit={this.handleFormSubmit}
+                incomeType={this.incomeType}
+                handleInput={this.handleInput}
+                updatestate={this.updatestate}
+            >
+            </NewModal>
         )
     }
 
@@ -139,7 +137,7 @@ class NewHome extends Component {
         })
     }
     updatestate = (showstate) => {
-        this.setState({showPopup: showstate})
+        this.setState({ showPopup: showstate })
     }
     render() {
 
@@ -148,17 +146,10 @@ class NewHome extends Component {
         return (
             <Container >
                 {this.showModal()}
-                <AccountDetails {...this.state } ></AccountDetails>
-                <TransectionList expenditure={expenditure}></TransectionList>  
-                <Row style={{ 'marginTop': "20px" }}>
-          <Col>
-            <Button variant="success" onClick={() => this.popShow("Add")}>Add Money (+)</Button>
-          </Col>
-          <Col>
-            <Button variant="danger" onClick={() => this.popShow()}>Spended Money (-)</Button>
-          </Col>
-        </Row>
-          </Container>
+                <AccountDetails {...this.state} ></AccountDetails>
+                <TransectionList expenditure={expenditure}></TransectionList>
+                <NewButton popShow={this.popShow}></NewButton>
+            </Container>
         );
     }
 }
