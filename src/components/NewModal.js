@@ -11,7 +11,7 @@ class NewModal extends Component {
               <Modal.Title>{this.props.incomeType ? "Add Spended Money" : "Add Received Money"}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <form onSubmit={this.props.handleFormSubmit}>
+              <form >
                 <label>
                   {this.props.incomeType ? "Spended Money" : "Add Money"}    : <input name="addedMoney" type="number" onChange={this.props.handleInput} />
                 </label>
@@ -25,7 +25,7 @@ class NewModal extends Component {
               <Button variant="secondary" onClick={() => this.props.updatestate(false)} >
                 Close
             </Button>
-              <Button variant="primary" onClick={this.props.handleSubmit}>
+              <Button variant="primary" onClick={this.props.handleFormSubmit}>
                 Save Changes
             </Button>
             </Modal.Footer>

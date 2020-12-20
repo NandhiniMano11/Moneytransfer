@@ -121,7 +121,7 @@ class NewHome extends Component {
     showModal = () => {
         return (
             <NewModal showPopup={this.state.showPopup}
-                handleFormSubmit={this.handleFormSubmit}
+                handleFormSubmit={this.handleSubmit}
                 incomeType={this.incomeType}
                 handleInput={this.handleInput}
                 updatestate={this.updatestate}
